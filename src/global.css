@@ -1,0 +1,461 @@
+body,html,#root{
+    height: 100%
+}
+body{
+    display: flex;
+    flex-direction: column
+}
+.header{
+    background: #d43c33;
+    color:#fff;
+}
+.headTop{
+  margin: 0;
+}
+.main{
+    margin-top:40px;
+}
+.main .Carousel{
+    padding-top: 20px;
+    
+}
+.space-carousel {
+    padding: 16px;
+    background: #DEF1E5;
+}
+.gexing{
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    z-index: 999;
+}
+.gexing ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    height:50px;
+    justify-content: space-around;
+    align-items: center
+}
+.gexing ul li{
+    list-style: none;
+    display: block;
+    width: 35%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+.gexing ul li a{
+    color: #9B0909
+}
+.gexing ul li a:active{
+    color: #9B0909
+}
+.FmTitle{
+    width: 100%;
+    height: 170px;
+    /* background: #cdcccd */
+}
+.FmTitle .P{
+    margin:0;
+    padding-left: 15px;
+}
+.FmTitle ul li span {
+    display: block;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    background-color: rgba(238, 238, 238, 1);
+    border:1px solid #bfbfbf;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    color: rgba(153, 153, 153, 1);
+}
+.FmTitle ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width:100%;
+    height: 90%
+}
+.FmTitle ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.SongTj{
+    width: 100%;
+    height:200px;
+}
+.SongTj ul{
+    width: 100%;
+    margin: 15px 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 50px
+   
+}
+.SongTj ul li{
+    width: 30%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.SongTj ul li img{
+    width: 100%;
+    height: 7.5rem
+}
+.PlayMusic{
+    width: 100%;
+    height: 60px;
+    background: rgba(56, 54,54, 0.5);
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+   display: flex;
+   justify-content: space-between;
+}
+.PlayMusic .left-Nav{
+    width: 50%;
+    height:100%;
+    display: flex;
+    color: #fff
+}
+.PlayMusic .left-Nav img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.PlayMusic .left-Nav .left-img{
+    width: 50%;
+    height:100%;
+    margin: 0;
+    padding: 0
+}
+.PlayMusic .left-Nav .left-imgName{
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 0 5px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.PlayMusic .left-Nav .left-imgName .song-name{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.PlayMusic .right-Nav{
+    width: 50%;
+    height:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff
+}
+.PlayMusic .right-Nav .play{
+    font-size: 30px;
+    font-weight:700;
+    padding: 0 15px
+}
+.PlayMusic .right-Nav .one{
+    font-size: 20px;
+    font-weight: 400
+}
+
+/* 注册登录公用背景 */
+.LoReBack{
+    width: 100%;
+    height: 100%;
+    background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565157075242&di=ea91561aa78bf568e069efe65d24e471&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201711%2F29%2F20171129112843_fwFE2.jpeg'); 
+    background-size:cover;
+   
+}
+.LoReBack h2{
+    margin: 0;
+    padding:0;
+
+}
+.LoReBack .bak{
+    width: 100%;
+    height: 100%;
+    background: rgba(126, 124, 124, 0.3);
+    display: flex; 
+    justify-content:center;
+    align-items: center
+}
+.LoReBack .bak .bak-main{
+        width: 70%;
+        height:70%;
+        /* background: #fff; */
+        display: flex;
+        align-items: center;
+        flex-direction: column
+}
+/* 设置图标 */
+.LoReBack .bak .bak-main img{
+    width: 100%;
+    height: 100%
+}
+.login{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.login input{
+    display: block;
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 15px 15px;
+    margin: 15px 0;
+    padding-left: 15px;
+    -webkit-border-radius: 15px 15px;
+    -moz-border-radius: 15px 15px;
+    -ms-border-radius: 15px 15px;
+    -o-border-radius: 15px 15px;
+}
+.Login{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.Login input{
+    display: block;
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 15px 15px;
+    margin: 15px 0;
+    padding-left: 15px
+}
+.reg{
+    display: block;
+    width:105%;
+    padding-top:15px;
+
+}
+.LoReBack .bak .bak-main .getCaptcha{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.LoReBack .bak .bak-main .getCaptcha input{
+    display: block;
+    width: 50%;
+}
+.LoReBack .bak .bak-main .getCaptcha button{
+    display: block;
+    width: 60%;
+}
+
+
+
+
+.my-drawer {
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .my-drawer .am-drawer-sidebar {
+    background-color: #fff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden
+  }
+  .my-drawer .am-drawer-sidebar .infoUser{
+      width: 260px;
+      height: 100%;
+  }
+  .my-drawer .am-drawer-sidebar .infoUser .headIndo{
+      width: 100%;
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content:flex-end
+  }
+  .infoUser .headIndo .touxiang{
+      width: 25%;
+      border-radius: 50%;
+      margin-left:15px;
+      margin-top: 15px
+}
+.infoUser .headIndo .headLast{
+      width: 100%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size:16px;
+      color: #fff;
+     
+}
+.infoUser .headIndo .headLast p{
+    padding-left: 20px
+}
+.infoUser .listInfo {
+    margin: 0;
+    padding: 0
+}
+.infoUser .listInfo li{
+    list-style: none;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    line-height: 30px;
+    padding-left: 20px;
+    color: #fff
+    
+}
+.songHead{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    background: rgba(56, 54,54, 0.3)
+}
+.songHead .imgRq{
+    width: 30%;
+    height: 50%
+}
+.Songs{
+    flex: 1;
+    overflow: auto;
+    padding: 0;
+}
+.Songs li{
+    margin:0;
+    padding: 0;
+    list-style: none;
+    height:50px;
+    border-bottom:1px solid #cecece;
+    display: flex;
+    align-items: center;  
+  
+    
+}
+.Songs li span{
+    font-size: 25px
+}
+
+.PlayPage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    overflow: auto
+}
+.PlayPage .haha{
+    height: 70px;
+    background: rgba(126, 124, 124, 0.3);
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+}
+.one,#one{
+    font-size: 25px
+}
+.PlayPage .head-haha{
+    height: 60px;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565611322617&di=993fb2473f357e4352c2a590065bc4f4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201711%2F29%2F20171129112214_Vf3Mv.thumb.700_0.jpeg')no-repeat; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+.PlayPage .zhongjian{
+    flex: 1;
+    overflow: auto;
+   text-align: center;
+   position: absolute;
+   padding-top: 100px;
+   width: 100%;
+}
+/* 搜索 */
+.am-search {
+    border-bottom: 1px solid #ddd;
+  }
+  .sub-title {
+    color: #888;
+    font-size: 14px;
+    padding: 30px 0 18px 0;
+  }
+  #oUl{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  #oUl li {
+      
+      list-style: none;
+      color: black;
+     
+      height: 50px;
+      border-bottom: 1px solid #cecece;
+      line-height: 50px;
+      padding-left: 20px
+
+  }
+/* 歌手 */
+.songEr{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+}
+.songEr img{
+    width: 100%;
+    height:100%
+}
+.top50 {
+    flex: 1;
+    overflow:auto;
+}
+.top50 ul{
+    padding-left: 15px
+}
+.top50 li{
+    list-style: none;
+   padding-left: 0;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   width: 100%;
+   justify-content: space-around;
+   border-bottom: 1px solid #cecece;
+
+}
+.top50 li .one{
+    padding: 20px;
+    font-size: 18px;
+    padding-top:15px
+}
+.sotitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
