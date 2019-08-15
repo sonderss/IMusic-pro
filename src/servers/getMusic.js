@@ -61,3 +61,7 @@ export function getSearch(key){
 export function getSongEr(songErid){
     return get('http://www.shixueyi.club:3000/artists?id='+songErid)
 }
+//获取用户歌单
+export function getUserList(uid){
+    return get('http://www.shixueyi.club:3000/user/playlist?uid='+uid)
+}

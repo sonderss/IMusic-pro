@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {play, prv} from '../servers/testFn'
-import {getUserPlaySongs,getSongInfo,getLrc} from '../servers/getMusic'
+import {getUserPlaySongs,getSongInfo,getLrc,getUserList,getDetailMusic} from '../servers/getMusic'
 import {getUrl,showLrc} from '../servers/testFn'
-import { Progress } from 'antd-mobile';
+import { Progress , Toast} from 'antd-mobile';
 import { parse } from 'qs'
 import { Icon} from 'antd-mobile';
 import creatHistory from 'history/createHashHistory'  //返回上一页这段代码
+import { async } from 'q';
 const history = creatHistory();//返回上一页这段代码
 class playPage extends Component {
     state ={
@@ -87,7 +88,7 @@ class playPage extends Component {
             audio.oncanplay = function () {  
                 var MusicTimes = audio.duration //总时长
                 that.state.zong = MusicTimes
-                console.log(that.state.zong)
+                //console.log(that.state.zong)
                 // console.log(MusicTimes)  
             }
             audio.addEventListener('timeupdate',()=>{
@@ -128,20 +129,25 @@ class playPage extends Component {
                 }   
                
             })
-        console.log(audio.paused)
-        console.log(this.state.num)
+        // console.log(audio.paused)
+        // console.log(this.state.num)
         })
     
         //最近播放歌曲列表
         getUserPlaySongs(uid).then(res=>{
-            //console.log(res.data.weekData)
-            this.setState({
-                SongList:res.data.weekData //最近播放歌曲列表
-            })
+            console.log(res.data.weekData.length)
             getUrl(queryData.id)
             this.setState({
                 isPlay:true
             })
+               
+                this.setState({
+                    SongList:res.data.weekData //最近播放歌曲列表
+                })
+           
+            
+            
+           
            
         })
         // audio.oncanplay = function () {  
@@ -154,14 +160,21 @@ class playPage extends Component {
     //播放
     playS(){
         
-        this.setState({
-            isPlay:!this.state.isPlay
-        },function(){
-            play(this.state.isPlay)
-        })
+            this.setState({
+                isPlay:!this.state.isPlay
+            },function(){
+                play(this.state.isPlay)
+            })
+        
+        
        
     }
     prv(){
+        if(this.state.SongList.length == 0){
+            Toast.info('您最近暂无听歌记录')
+        }else{
+
+        
         const audio= document.getElementById('playMusic')
         const that = this
         this.setState({
@@ -218,7 +231,11 @@ class playPage extends Component {
             
         }
     }
+    }
     next(){
+        if(this.state.SongList.length == 0){
+            Toast.info('您最近暂无听歌记录')
+        }else{
         const audio= document.getElementById('playMusic')
         const that = this
         this.setState({
@@ -273,11 +290,16 @@ class playPage extends Component {
             })
         }
     }
+    }
     //后退，并停止播放
     toPrv(){
         this.state.isPlay = false
         play(this.state.isPlay)
         history.goBack();
+    }
+    //列表
+    liebiao(){
+        Toast.info('列表功能正在开发中...')
     }
     render() {
         const {isPlay,sid,text,test,songer,songImg} = this.state
@@ -311,7 +333,9 @@ class playPage extends Component {
                     <span className='iconfont icon-xiayishou one'
                     onClick={()=>this.next()}
                     ></span>
-                    <span className='iconfont icon-liebiao one'></span>
+                    <span className='iconfont icon-liebiao one'
+                    onClick={()=>{this.liebiao()}}
+                    ></span>
                 </div>
             
         </div>

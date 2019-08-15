@@ -1,7 +1,8 @@
 import React , {useEffect,useState} from 'react'
 import {getUserPlaySongs} from '../servers/getMusic'
-import {getMusicUrl} from '../servers/getMusic'
+import {getMusicUrl,getUserList,getDetailMusic} from '../servers/getMusic'
 import {play,getUrl} from '../servers/testFn'
+import { Toast} from 'antd-mobile';
 import '../../node_modules/antd-mobile/dist/font_4q1fp5troyo/iconfont.css'
 function BuNav1() {
     const [songList,setSongList] = useState({song:{name:'',ar:[{name:''}],al:[{picUrl:''}],privilege:{id:''}}})
@@ -10,6 +11,7 @@ function BuNav1() {
     const [MusicList,setList] = useState(0)
     const [List,setL] = useState(0)
     const [MusicTimes,setZong] = useState(0)
+    const [flag,setFlag] = useState(true)
     useEffect(function(){
         const uid = localStorage.getItem('useId')
         //这里没有考虑未登录状态
@@ -17,8 +19,16 @@ function BuNav1() {
 
             setL(res.data.weekData)
             setList(res.data.weekData.length)
-            //console.log(res.data.weekData.slice(1,2)[0])
-            setSongList(res.data.weekData.slice(MusicList,MusicList+1)[0])
+            //console.log(res.data.weekData.length)
+            if(res.data.weekData.length == 0){
+                Toast.info('您最近未听过歌...')
+                setFlag(false)
+            }else{
+                setSongList(res.data.weekData.slice(MusicList,MusicList+1)[0])
+            }
+                
+          
+            
            // console.log(res.data.weekData)
          
         })
@@ -26,6 +36,7 @@ function BuNav1() {
   
     //播放
     const play1 = (songId)=>{
+       if(flag){
         // console.log(songId) 拿到歌曲id，调用获取URl的接口
         const audio = document.getElementById('playMusic')
         //把Url给到播放器
@@ -57,7 +68,9 @@ function BuNav1() {
                 setZong(MusicTimes)
                 // console.log(MusicTimes)  
             }
-            
+        }else{
+            Toast.info('您的最近播放记录为0...')
+        }
     }
     //上一首
    function prv() {
