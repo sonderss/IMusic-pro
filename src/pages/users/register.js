@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../../statics/wyy.png'
-import { Button } from 'antd-mobile';
+import { Button , Toast} from 'antd-mobile';
 import { getCaptcha } from '../../servers/getMusic'
 import {getRegister} from '../../servers/getMusic'
 import {getNull} from '../../servers/testFn'
@@ -33,10 +33,17 @@ class register extends Component {
             name:e.target.value
         })
     }
-    getCaprchaNum(){
-        // getCaptcha().then(res=>{
-        //     console.log(res.data)
-        // })
+    getCaprchaNum(phone){
+        getCaptcha(phone).then(res=>{
+            if(res.status == 200){
+                Toast.info('验证码已发送！')
+            }else if(res.status == 400){
+                Toast.info('发送验证码超过限制:每个手机号一天只能发5条验证码')
+            }else{
+                Toast.info('请输入正确号码或者稍微等待一会~')
+            }
+           
+        })
     }
     toRegster(useName,psd,cap,name){
        
@@ -91,7 +98,7 @@ class register extends Component {
                             value={this.state.cap} 
                             onChange={this.getCap.bind(this)}
                             />
-                            <Button type='ghost' onClick={this.getCaprchaNum}>获取验证码</Button>
+                            <Button type='ghost' onClick={()=>this.getCaprchaNum(this.state.useName)}>获取验证码</Button>
                        </div>
                        <input type='text' placeholder='请输入昵称'
                        value={this.state.name} 
